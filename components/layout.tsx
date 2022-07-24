@@ -1,7 +1,8 @@
 import React from 'react';
 import { AppBar, Button, Toolbar, Typography, Box } from '@mui/material';
-import { NextLinkComposed } from '../src/Link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from '../src/Link';
+import LoginButton from './loginButton';
 
 type LayoutProps = {
   children: React.ReactElement | React.ReactElement[];
@@ -23,13 +24,7 @@ export default function Layout({ children }: LayoutProps) {
               </Typography>
             </Link>
           </Box>
-          <Button
-            component={NextLinkComposed}
-            to={{ pathname: '/login' }}
-            color="inherit"
-          >
-            Login
-          </Button>
+          <LoginButton />
         </Toolbar>
       </AppBar>
       {children}
